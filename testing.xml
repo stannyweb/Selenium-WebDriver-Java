@@ -4,7 +4,7 @@
         <classes>
             <class name="org.stannyweb.SignInTest">
                 <methods>
-                    <include name="signInTest"/>
+                    <include name="signInWithIncorrectCredentials"/>
                 </methods>
             </class>
         </classes>
