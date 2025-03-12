@@ -1,37 +1,14 @@
-package org.stannyweb;
+package signing;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import base.BaseTest;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
+public class SignInTest extends BaseTest {
 
-public class SignInTest {
-
-    private WebDriver driver;
-    private WebDriverWait wait;
-
-    @BeforeMethod
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        driver.get("https://rahulshettyacademy.com/locatorspractice/");
-
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) driver.quit();
-    }
 
     @Test
     public void signInWithIncorrectCredentials() {
@@ -46,7 +23,7 @@ public class SignInTest {
     }
 
     private void clickSignInButton() {
-        driver.findElement(By.cssSelector(".submit.signInBtn")).click();
+        driver.findElement(By.cssSelector("button[class='submit signInBtn']")).click();
     }
 
     private void verifyErrorMessage(String expectedMessage) {

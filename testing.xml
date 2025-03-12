@@ -2,9 +2,14 @@
 <suite name="MyTestSuite">
     <test name="MyTest">
         <classes>
-            <class name="org.stannyweb.SignInTest">
+            <class name="signing.SignInTest">
                 <methods>
                     <include name="signInWithIncorrectCredentials"/>
+                </methods>
+            </class>
+            <class name="forgotpassword.ForgotPasswordTest">
+                <methods>
+                    <include name="forgotPasswordTest"/>
                 </methods>
             </class>
         </classes>
