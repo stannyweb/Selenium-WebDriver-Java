@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MyTestSuite">
+    <test name="MyTest">
+        <classes>
+            <class name="org.stannyweb.SignInTest">
+                <methods>
+                    <include name="signInTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
