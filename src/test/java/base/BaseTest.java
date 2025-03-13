@@ -12,14 +12,15 @@ import java.time.Duration;
 public class BaseTest {
     protected WebDriver driver;
     protected WebDriverWait wait;
-    protected String baseUrl = "https://rahulshettyacademy.com/locatorspractice/";
+    protected String baseURL = "https://rahulshettyacademy.com/locatorspractice/";
 
     @BeforeMethod
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        driver.get(baseUrl);
+        driver.manage().window().maximize();
+        driver.get(baseURL);
 
     }
 
