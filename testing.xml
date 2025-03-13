@@ -1,12 +1,16 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="MyTestSuite">
-    <test name="MyTest">
+<suite name="ParallelTests" parallel="tests" thread-count="2">
+    <test name="SignInTest">
         <classes>
             <class name="signing.SignInTest">
                 <methods>
                     <include name="signInWithIncorrectCredentials"/>
                 </methods>
             </class>
+        </classes>
+    </test>
+    <test name="ForgotPasswordTest">
+        <classes>
             <class name="forgotpassword.ForgotPasswordTest">
                 <methods>
                     <include name="forgotPasswordTest"/>

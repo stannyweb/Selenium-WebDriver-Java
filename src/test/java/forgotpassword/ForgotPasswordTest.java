@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 public class ForgotPasswordTest extends BaseTest {
 
+
     @Test
     public void forgotPasswordTest() {
         clickForgotPasswordLinkOnLoginPage();
@@ -42,6 +43,8 @@ public class ForgotPasswordTest extends BaseTest {
         String title =
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[text()='Sign in']"))).getText();
         Assert.assertEquals(expectedTitle, "Sign in", "Incorrect Title");
-        System.out.println(title);
+        System.out.println("Title: " + title);
     }
+
+
 }
