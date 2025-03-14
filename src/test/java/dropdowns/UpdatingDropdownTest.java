@@ -61,15 +61,11 @@ public class UpdatingDropdownTest extends BaseTest {
         String errMessage = "Incorrect number of passengers";
         String expectedAdults = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
-                        By.cssSelector("div[class='css-1dbjc4n r-k8qxaj r-d9fdf6'] div:nth-child(1) div:nth-child(2) " +
-                                "div:nth-child(2) div:nth-child(1)"))).getText();
+                        By.xpath("(//div[@class='css-76zvg2 r-homxoj r-adyw6z r-q4m81j'])[1]"))).getText();
 
         String expectedChildren = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
-                        By.xpath("//div[@class='css-1dbjc4n r-k8qxaj r-d9fdf6']/div[@class='css-1dbjc4n r-18u37iz " +
-                                "r-1wtj0ep r-1x0uki6'][2]/div[@class='css-1dbjc4n r-1awozwy " +
-                                "r-18u37iz']/div[@class='css-1dbjc4n r-1kz6sp']/div[@class='css-76zvg2 r-homxoj " +
-                                "r-adyw6z r-q4m81j']"))).getText();
+                        By.xpath("(//div[@class='css-76zvg2 r-homxoj r-adyw6z r-q4m81j'])[2]"))).getText();
 
         assertEquals(expectedAdults, adults, errMessage);
         assertEquals(expectedChildren, children, errMessage);
