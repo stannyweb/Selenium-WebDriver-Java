@@ -8,8 +8,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 public class AutoSuggestiveDropdownTest extends StaticDropdownTest {
 
@@ -32,7 +31,7 @@ public class AutoSuggestiveDropdownTest extends StaticDropdownTest {
                 wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
                         By.xpath(SUGGESTED_COUNTRIES_XPATH)));
 
-        assertTrue(suggestedCountries.size() > 0, "No suggested countries found");
+        assertFalse(suggestedCountries.isEmpty(), "No suggested countries found");
 
         for (WebElement option : suggestedCountries) {
             if (option.getText().equalsIgnoreCase(EXPECTED_COUNTRY))
