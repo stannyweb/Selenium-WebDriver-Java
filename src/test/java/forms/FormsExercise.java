@@ -30,6 +30,7 @@ public class FormsExercise {
     private GenderDropdown genderDropdown;
     private EmploymentStatusRadioButton employmentStatusRadioButton;
     private DateInput dateInput;
+    private SubmitButton submitButton;
 
     @BeforeMethod
     public void setUp() {
@@ -42,6 +43,7 @@ public class FormsExercise {
         genderDropdown = new GenderDropdown(driver, wait);
         employmentStatusRadioButton = new EmploymentStatusRadioButton(driver, wait);
         dateInput = new DateInput(driver, wait);
+        submitButton = new SubmitButton(driver, wait);
     }
 
     @Test
@@ -51,6 +53,7 @@ public class FormsExercise {
         genderDropdown.selectFemale();
         employmentStatusRadioButton.selectEmploymentStatus();
         dateInput.setDateInput("04011991");
+        submitButton.clickSubmitButton();
         System.out.println("Selected gender: " + genderDropdown.getSelectedGender());
 
     }
