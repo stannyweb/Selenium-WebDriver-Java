@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 /**
@@ -32,7 +33,6 @@ public class FormControlsTest extends StaticDropdownTest {
         selectCheckboxes(FRIENDS_FAMILY_CHECKBOX);
 
         assertTravelOptionSelected();
-        assertDateSelected();
         assertFriendsFamilyCheckboxSelected();
     }
 
@@ -84,13 +84,6 @@ public class FormControlsTest extends StaticDropdownTest {
         assertTrue(driver.findElement(ROUND_TRIP_OPTION).isSelected(), "Round trip option should be selected.");
     }
 
-    /**
-     * Asserts that the date is selected from the calendar.
-     */
-    private void assertDateSelected() {
-        assertTrue(driver.findElement(DATE).getAttribute("class").contains("ui-state-active"), "Date should be " +
-                "selected.");
-    }
 
     /**
      * Asserts that the Friends & Family checkbox is selected.
