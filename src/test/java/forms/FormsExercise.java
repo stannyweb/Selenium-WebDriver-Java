@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -61,9 +60,6 @@ public class FormsExercise {
     /**
      * Enter credentials for the input fields
      *
-     * @param name
-     * @param email
-     * @param password
      */
     private void enterCredentials(String name, String email, String password) {
         wait.until(ExpectedConditions.presenceOfElementLocated(NAME_INPUT)).sendKeys(name);
@@ -88,9 +84,9 @@ public class FormsExercise {
     }
 
 
-//    @AfterMethod
-//    public void tearDown() {
-//        if (driver != null)
-//            driver.quit();
-//    }
+    @AfterMethod
+    public void tearDown() {
+        if (driver != null)
+            driver.quit();
+    }
 }
