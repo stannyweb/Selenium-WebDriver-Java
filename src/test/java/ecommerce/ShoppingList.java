@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.CartPage;
+import pages.HomePage;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -27,11 +29,11 @@ public class ShoppingList {
     private WebDriver driver;
     private WebDriverWait wait;
     private ProductPage productPage;
+    private HomePage homePage;
 
     private final String baseURL = "https://rahulshettyacademy.com/seleniumPractise/";
 
     private final Logger logger = Logger.getLogger(ShoppingList.class.getName());
-
 
     @BeforeMethod
     public void setUp() {
@@ -40,13 +42,18 @@ public class ShoppingList {
         driver.manage().window().maximize();
 
         driver.get(baseURL);
-
+        homePage = new HomePage(driver);
         productPage = new ProductPage(driver);
     }
 
     @Test
     public void shoppingListItemsTest() {
         selectShoppingListItems();
+        homePage.selectCartIcon();
+        CartPage cartPage = homePage.goToCartPage()
+                .enterPromoCode()
+                .applyDiscountWithPromoCode()
+                .validatePromoCodeMessage();
     }
 
     private void selectShoppingListItems() {
