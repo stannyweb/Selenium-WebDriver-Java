@@ -9,15 +9,12 @@ import java.time.Duration;
 
 public class HomePage {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
-    private String baseURL;
+    private final WebDriverWait wait;
 
     private final By CART_ICON = By.cssSelector("img[alt='Cart']");
     private final By PROCEED_TO_CHECKOUT_BUTTON = By.xpath("//button[text()='PROCEED TO CHECKOUT']");
 
     public HomePage(WebDriver driver) {
-        this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
@@ -28,7 +25,7 @@ public class HomePage {
 
     public CartPage goToCartPage() {
         wait.until(ExpectedConditions.elementToBeClickable(PROCEED_TO_CHECKOUT_BUTTON)).click();
-        return new CartPage(driver, wait);
+        return new CartPage(wait);
 
     }
 

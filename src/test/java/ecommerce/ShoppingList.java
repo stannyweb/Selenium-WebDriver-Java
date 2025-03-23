@@ -20,7 +20,6 @@ import static org.testng.Assert.*;
 public class ShoppingList {
 
     private WebDriver driver;
-    private WebDriverWait wait;
     private ProductPage productPage;
     private HomePage homePage;
 
