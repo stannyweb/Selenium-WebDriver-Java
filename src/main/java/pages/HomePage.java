@@ -9,12 +9,14 @@ import java.time.Duration;
 
 public class HomePage {
 
-    private final WebDriverWait wait;
+    private WebDriver driver;
+    private WebDriverWait wait;
 
     private final By CART_ICON = By.cssSelector("img[alt='Cart']");
     private final By PROCEED_TO_CHECKOUT_BUTTON = By.xpath("//button[text()='PROCEED TO CHECKOUT']");
 
     public HomePage(WebDriver driver) {
+        this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 

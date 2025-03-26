@@ -36,8 +36,6 @@ public class SignInExampleTest {
         signInPage.performSignIn();
         ShopPage clickSignInButton = signInPage.clickSignInButton();
         clickSignInButton.addItemsToCartAndVerifyCheckout();
-
-
     }
 
     @AfterMethod
