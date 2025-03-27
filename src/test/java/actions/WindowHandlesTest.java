@@ -15,6 +15,8 @@ import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
 
+import static org.apache.commons.lang3.StringUtils.trim;
+
 public class WindowHandlesTest {
 
     private final String baseURL = "https://rahulshettyacademy.com/loginpagePractise/";
@@ -22,7 +24,7 @@ public class WindowHandlesTest {
     private WebDriverWait wait;
 
     private final By BLINKING_TEXT = By.cssSelector("a[class='blinkingText']");
-    private final By CHILD_WINDOW_TEXT = By.xpath("//a[text()='mentor@rahulshettyacademy.com']");
+    private final By CHILD_WINDOW_TEXT = By.cssSelector(".im-para.red");
     private final By USERNAME_FIELD = By.id("username");
 
     @BeforeMethod
@@ -41,7 +43,7 @@ public class WindowHandlesTest {
     }
 
     @Test
-    public void verifyTextFromChildWindow () {
+    public void verifyTextFromChildWindow() {
         clickOnBlinkingText();
         handleChildWindows();
     }
@@ -57,9 +59,10 @@ public class WindowHandlesTest {
             driver.switchTo().window(childWindow);
         }
 
-        String textFromChildWindow =
-                wait.until(ExpectedConditions.visibilityOfElementLocated(CHILD_WINDOW_TEXT)).getText();
+        String extractTextFromChildWindow =
+                wait.until(ExpectedConditions.visibilityOfElementLocated(CHILD_WINDOW_TEXT))
+                        .getText().split("at")[1].trim().split(" ")[0];
         driver.switchTo().window(parentWindow);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(USERNAME_FIELD)).sendKeys(textFromChildWindow);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(USERNAME_FIELD)).sendKeys(extractTextFromChildWindow);
     }
 }
